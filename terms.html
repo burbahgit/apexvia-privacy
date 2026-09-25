@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apexvia Kullanım Koşulları / Apexvia Terms of Use</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  color-scheme:light;
+  --bg:#faf9f4;
+  --surface:#ffffff;
+  --surface-2:#f2ede1;
+  --text:#211f1a;
+  --text-muted:#726a5c;
+  --border:#e5ddcb;
+  --accent:#c9501f;
+  --accent-ink:#ffffff;
+  --sidebar-bg:#211f1a;
+  --sidebar-text:#f1ece0;
+  --sidebar-muted:#a89d88;
+  --sidebar-active:#e8763f;
+  --focus:#c9501f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#15140f;
+    --surface:#1d1b15;
+    --surface-2:#26231b;
+    --text:#eee8d9;
+    --text-muted:#9d9481;
+    --border:#332f24;
+    --accent:#e8763f;
+    --accent-ink:#15140f;
+    --sidebar-bg:#0f0e0b;
+    --sidebar-text:#eee8d9;
+    --sidebar-muted:#84795f;
+    --sidebar-active:#e8763f;
+    --focus:#e8763f;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#15140f;
+  --surface:#1d1b15;
+  --surface-2:#26231b;
+  --text:#eee8d9;
+  --text-muted:#9d9481;
+  --border:#332f24;
+  --accent:#e8763f;
+  --accent-ink:#15140f;
+  --sidebar-bg:#0f0e0b;
+  --sidebar-text:#eee8d9;
+  --sidebar-muted:#84795f;
+  --sidebar-active:#e8763f;
+  --focus:#e8763f;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;}
+h1,h2,h3,.label,.mile{
+  font-family:'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  text-transform:uppercase;
+  text-wrap:balance;
+}
+.mono{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+}
+a{ color:var(--accent); }
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--focus);
+  outline-offset:2px;
+}
+
+.shell{
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr);
+  min-height:100vh;
+}
+
+.sidebar{
+  background:var(--sidebar-bg);
+  color:var(--sidebar-text);
+  padding:28px 22px;
+  position:sticky;
+  top:0;
+  align-self:start;
+  height:100vh;
+  overflow-y:auto;
+  border-right:6px solid var(--accent);
+}
+.brand{
+  font-weight:800;
+  font-size:1.7rem;
+  letter-spacing:0.02em;
+  color:var(--sidebar-text);
+  margin:0 0 2px;
+}
+.brand-sub{
+  font-family:'IBM Plex Mono', monospace;
+  text-transform:none;
+  font-size:0.72rem;
+  color:var(--sidebar-muted);
+  margin:0 0 22px;
+  letter-spacing:0.03em;
+}
+.lang-toggle{
+  display:flex;
+  gap:0;
+  border:1px solid var(--sidebar-muted);
+  border-radius:3px;
+  overflow:hidden;
+  margin-bottom:24px;
+  width:fit-content;
+}
+.lang-toggle button{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.75rem;
+  letter-spacing:0.06em;
+  padding:6px 14px;
+  background:transparent;
+  color:var(--sidebar-muted);
+  border:none;
+  cursor:pointer;
+}
+.lang-toggle button[aria-pressed="true"]{
+  background:var(--accent);
+  color:var(--accent-ink);
+  font-weight:600;
+}
+.toc{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-top:1px solid rgba(255,255,255,0.12);
+}
+.toc li{
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.toc a{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:9px 2px;
+  color:var(--sidebar-text);
+  text-decoration:none;
+  font-size:0.86rem;
+  line-height:1.3;
+}
+.toc a:hover, .toc a:focus-visible{ color:var(--sidebar-active); }
+.toc .num{
+  font-family:'IBM Plex Mono', monospace;
+  color:var(--sidebar-muted);
+  font-size:0.78rem;
+  min-width:1.4em;
+}
+.meta-block{
+  margin-top:26px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  color:var(--sidebar-muted);
+  line-height:1.8;
+}
+.meta-block strong{ color:var(--sidebar-text); font-weight:500; }
+
+main{
+  padding:60px clamp(24px, 6vw, 88px) 100px;
+  max-width:760px;
+}
+header.hero{
+  margin-bottom:44px;
+  padding-bottom:28px;
+  border-bottom:3px solid var(--accent);
+}
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin:0 0 10px;
+}
+h1.title{
+  font-size:clamp(2.1rem, 4.2vw, 3rem);
+  font-weight:800;
+  margin:0 0 12px;
+  line-height:0.98;
+}
+.dek{
+  color:var(--text-muted);
+  font-size:1.05rem;
+  max-width:56ch;
+  margin:0;
+}
+
+section.entry{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  gap:20px;
+  padding:34px 0;
+  border-bottom:1px solid var(--border);
+  scroll-margin-top:24px;
+}
+section.entry:last-of-type{ border-bottom:none; }
+.mile{
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--accent);
+  line-height:1;
+}
+.entry-body h2{
+  font-size:1.3rem;
+  font-weight:700;
+  margin:0 0 12px;
+  letter-spacing:0.01em;
+}
+.entry-body p{ margin:0 0 14px; color:var(--text); }
+.entry-body p:last-child{ margin-bottom:0; }
+.entry-body ul{ margin:0 0 14px; padding-left:1.2em; }
+.entry-body li{ margin-bottom:8px; }
+
+.callout{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  padding:14px 16px;
+  border-radius:4px;
+  margin:0 0 14px;
+  font-size:0.95rem;
+}
+.callout strong{ color:var(--accent); }
+
+table.data-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:8px 0 16px;
+  font-size:0.92rem;
+}
+.table-wrap{ overflow-x:auto; }
+table.data-table th, table.data-table td{
+  text-align:left;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  vertical-align:top;
+}
+table.data-table th{
+  background:var(--surface-2);
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:500;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  color:var(--text-muted);
+}
+
+.pill{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.7rem;
+  letter-spacing:0.03em;
+  padding:2px 8px;
+  border-radius:99px;
+  border:1px solid var(--border);
+  color:var(--text-muted);
+  background:var(--surface-2);
+}
+.pill.no{ color:#3f7a4e; border-color:#3f7a4e55; }
+.pill.yes{ color:var(--accent); border-color:var(--accent); }
+
+.contact-card{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  padding:18px 20px;
+  border-radius:4px;
+  margin-top:8px;
+}
+.contact-card a{ font-weight:600; }
+
+footer{
+  max-width:760px;
+  margin:0 clamp(24px, 6vw, 88px);
+  padding:24px 0 60px;
+  color:var(--text-muted);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.75rem;
+}
+
+[data-lang]{ display:none; }
+[data-lang].active{ display:block; }
+span[data-lang].active{ display:inline; }
+
+@media (max-width: 780px){
+  .shell{ grid-template-columns:1fr; }
+  .sidebar{
+    position:relative;
+    height:auto;
+    border-right:none;
+    border-bottom:6px solid var(--accent);
+  }
+  section.entry{ grid-template-columns:44px minmax(0,1fr); gap:14px; }
+  .mile{ font-size:1.6rem; }
+}
+
+@media (prefers-reduced-motion: no-preference){
+  section.entry{ scroll-behavior:smooth; }
+}
+
+/* Yasal sayfalar (build-legal-pages.mjs) için eklenenler */
+.doc-nav{ display:flex; flex-direction:column; gap:2px; margin:0 0 22px; }
+.doc-nav a{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  color:var(--sidebar-muted);
+  text-decoration:none;
+  padding:4px 0 4px 10px;
+  border-left:2px solid transparent;
+}
+.doc-nav a:hover, .doc-nav a:focus-visible{ color:var(--sidebar-active); }
+.doc-nav a[aria-current="page"]{ color:var(--sidebar-text); border-left-color:var(--sidebar-active); font-weight:500; }
+.hero p{ color:var(--text-muted); max-width:60ch; }
+.hero p.meta{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; line-height:1.9; }
+.hero p.meta strong{ color:var(--accent); font-weight:500; }
+.entry-body h3{
+  font-size:1.05rem;
+  font-weight:700;
+  margin:22px 0 10px;
+  letter-spacing:0.01em;
+}
+.entry-body ol{ margin:0 0 14px; padding-left:1.4em; }
+.entry-body ul.letters{ list-style:none; padding-left:0; }
+.entry-body ul.letters .letter{ font-family:'IBM Plex Mono', monospace; color:var(--accent); margin-right:4px; }
+.entry-body code, table.data-table code{ font-family:'IBM Plex Mono', monospace; font-size:0.85em; }
+mark{ background:#f5d547; color:#211f1a; padding:0 3px; border-radius:2px; }
+.draft-banner{
+  background:#f5d547;
+  color:#211f1a;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.8rem;
+  padding:10px 14px;
+  border-radius:4px;
+  margin:0 0 24px;
+}
+.meta-block strong{ display:block; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <p class="brand">APEXVIA</p>
+    <div data-lang="tr" lang="tr"><nav class="doc-nav" aria-label="Kullanım Koşulları"><a href="index.html">Gizlilik Politikası</a><a href="terms.html" aria-current="page">Kullanım Koşulları</a><a href="kvkk.html">KVKK Aydınlatma Metni</a></nav></div>
+<div data-lang="en" lang="en"><nav class="doc-nav" aria-label="Terms of Use"><a href="index.html">Privacy Policy</a><a href="terms.html" aria-current="page">Terms of Use</a><a href="kvkk.html">KVKK Privacy Notice</a></nav></div>
+    <div class="lang-toggle" role="group" aria-label="Dil / Language">
+      <button type="button" id="btn-tr" aria-pressed="true">TR</button>
+      <button type="button" id="btn-en" aria-pressed="false">EN</button>
+    </div>
+    <div data-lang="tr" lang="tr"><nav aria-label="İçindekiler"><ul class="toc mono">
+      <li><a href="#tr-1"><span class="num">01</span><span>Hizmetin niteliği</span></a></li>
+      <li><a href="#tr-2"><span class="num">02</span><span>Sürüş güvenliği ve sizin sorumluluğunuz</span></a></li>
+      <li><a href="#tr-3"><span class="num">03</span><span>Üçüncü taraf verileri ve hizmetleri</span></a></li>
+      <li><a href="#tr-4"><span class="num">04</span><span>Kabul edilemez kullanım</span></a></li>
+      <li><a href="#tr-5"><span class="num">05</span><span>Fikrî mülkiyet</span></a></li>
+      <li><a href="#tr-6"><span class="num">06</span><span>Hizmetin değişmesi ve durması</span></a></li>
+      <li><a href="#tr-7"><span class="num">07</span><span>Sorumluluğun sınırlandırılması</span></a></li>
+      <li><a href="#tr-8"><span class="num">08</span><span>Gizlilik</span></a></li>
+      <li><a href="#tr-9"><span class="num">09</span><span>Değişiklikler</span></a></li>
+      <li><a href="#tr-10"><span class="num">10</span><span>Uygulanacak hukuk</span></a></li>
+      <li><a href="#tr-11"><span class="num">11</span><span>İletişim</span></a></li>
+    </ul></nav></div>
+<div data-lang="en" lang="en"><nav aria-label="Contents"><ul class="toc mono">
+      <li><a href="#en-1"><span class="num">01</span><span>What the service is</span></a></li>
+      <li><a href="#en-2"><span class="num">02</span><span>Riding safety and your responsibility</span></a></li>
+      <li><a href="#en-3"><span class="num">03</span><span>Third-party data and services</span></a></li>
+      <li><a href="#en-4"><span class="num">04</span><span>Unacceptable use</span></a></li>
+      <li><a href="#en-5"><span class="num">05</span><span>Intellectual property</span></a></li>
+      <li><a href="#en-6"><span class="num">06</span><span>Changes to and discontinuation of the service</span></a></li>
+      <li><a href="#en-7"><span class="num">07</span><span>Limitation of liability</span></a></li>
+      <li><a href="#en-8"><span class="num">08</span><span>Privacy</span></a></li>
+      <li><a href="#en-9"><span class="num">09</span><span>Changes</span></a></li>
+      <li><a href="#en-10"><span class="num">10</span><span>Governing law</span></a></li>
+      <li><a href="#en-11"><span class="num">11</span><span>Contact</span></a></li>
+    </ul></nav></div>
+    <div class="meta-block">
+      <div data-lang="tr" lang="tr"><strong>Sürüm 1.0</strong></div>
+<div data-lang="en" lang="en"><strong>Version 1.0</strong></div>
+      <div>com.burbahgit.motorota</div>
+    </div>
+  </aside>
+  <main>
+    
+    <div data-lang="tr" lang="tr"><header class="hero">
+      <h1 class="title">Apexvia Kullanım Koşulları</h1>
+      <p class="meta"><strong>Yürürlük tarihi:</strong> 25 Eylül 2026<br><strong>Uygulama:</strong> Apexvia (Android, paket adı <code>com.burbahgit.motorota</code>)<br><strong>Geliştirici:</strong> Burak Bahalı · burak.bahali@gmail.com</p>
+      <p>Apexvia'yı indirerek veya kullanarak bu koşulları kabul etmiş olursunuz. Kabul etmiyorsanız uygulamayı kullanmayın ve cihazınızdan kaldırın.</p>
+    </header>
+    <section class="entry" id="tr-1">
+      <span class="mile">01</span>
+      <div class="entry-body">
+        <h2>Hizmetin niteliği</h2>
+        <p>Apexvia, motosikletçilere sürüş tarzlarına göre rota <strong>önerileri</strong> sunan ücretsiz bir planlama uygulamasıdır. Rotalar, yükseklik profili, yol karakteri, hava durumu, yakıt molası ve yer bilgileri üçüncü taraf verilerinden otomatik olarak hesaplanır. Bu bilgiler **yalnız planlamaya yardımcı olmak içindir**; bir yolun güvenli, açık, uygun veya yasal olduğu anlamına gelmez.</p>
+        <p>Apexvia bir navigasyon cihazı değildir; sesli yönlendirme veya canlı trafik bilgisi sunmaz.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-2">
+      <span class="mile">02</span>
+      <div class="entry-body">
+        <h2>Sürüş güvenliği ve sizin sorumluluğunuz</h2>
+        <ul><li><strong>Sürüş sırasında uygulamayı kullanmayın.</strong> Rotanızı yola çıkmadan planlayın. Telefonunuzu yalnız güvenli bir yerde durduktan sonra kullanın.</li><li>Trafik kurallarına, yol işaretlerine, yetkililerin talimatlarına ve yol, hava ve trafik koşullarına uymak <strong>sürücü olarak sizin sorumluluğunuzdadır</strong>. Uygulamanın önerisi ile yoldaki durum farklıysa yoldaki duruma uyun.</li><li>Önerilen bir yol kapalı, bakımsız, yapım aşamasında, stabilize, özel mülk, geçişi yasak veya motosiklet ya da sürüş becerileriniz için uygun olmayabilir. Bir rotayı sürmeden önce uygunluğunu kendiniz değerlendirin.</li><li><strong>Yakıt molası bir tahmindir.</strong> Menzil hesabı, girdiğiniz depo hacmi ve ortalama tüketime dayanır; gerçek tüketim yük, hız, rüzgâr, eğim ve sürüş biçimine göre değişir. Önerilen istasyon kapalı, kaldırılmış veya ihtiyacınız olan yakıtı satmıyor olabilir. Uzun ve tenha rotalarda yakıtınızı kendiniz planlayın.</li><li>Hava durumu bilgisi bir tahmindir ve değişebilir.</li><li>Dağ yolları, geçitler ve yüksek rakımlı güzergâhlar ani hava değişimine, kara ve buzlanmaya açıktır.</li></ul>
+      </div>
+    </section>
+    <section class="entry" id="tr-3">
+      <span class="mile">03</span>
+      <div class="entry-body">
+        <h2>Üçüncü taraf verileri ve hizmetleri</h2>
+        <p>Apexvia, aşağıdaki hizmetlerin verilerini kullanır. Bu verilerin doğruluğu, güncelliği ve eksiksizliği garanti edilmez.</p>
+        <ul><li><strong>Google Maps Platform</strong> (harita, rota, yer araması, yükseklik, hava durumu). Apexvia'yı kullanarak Google'ın koşullarına da bağlı olmayı kabul edersiniz:<ul><li><a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noopener">Google Haritalar/Google Earth Ek Hizmet Şartları</a></li><li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a></li></ul></li><li><strong>OpenStreetMap</strong> (benzinlik, konaklama, kafe verisi; dağ geçitleri ve yol karakteri). Veriler © OpenStreetMap katkıda bulunanlar'a aittir ve <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">Open Database License (ODbL)</a> ile lisanslanmıştır: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">openstreetmap.org/copyright</a>. Uygulamayla gelen veri setinin kendisi ve üretim betiği <a href="https://github.com/burbahgit/apexvia-osm-data" target="_blank" rel="noopener">github.com/burbahgit/apexvia-osm-data</a> adresinde yayınlanmıştır.</li><li><strong>Yetkili servis listesi</strong> Google'daki işletme kayıtlarından çıkarılır. Bir servisin gerçekten yetkili olduğunu markanın resmî kanallarından doğrulayın.</li></ul>
+        <p>Bir rotayı Google Maps'e aktardığınızda Google Maps'in önerdiği yol, Apexvia'da gördüğünüz yoldan farklı olabilir.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-4">
+      <span class="mile">04</span>
+      <div class="entry-body">
+        <h2>Kabul edilemez kullanım</h2>
+        <p>Aşağıdakileri yapmamayı kabul edersiniz:</p>
+        <ul><li>Uygulamanın ara sunucularını uygulama dışından çağırmak, otomatik araçlarla istek göndermek, hız ve maliyet sınırlarını aşmaya çalışmak.</li><li>Google veya OpenStreetMap içeriğini uygulamadan toplu olarak çıkarmak, kopyalamak veya başka bir hizmette kullanmak (OSM verisi için ODbL koşulları saklıdır).</li><li>Uygulamayı tersine mühendislikle çözmek, değiştirmek veya dağıtmak (yürürlükteki mevzuatın açıkça izin verdiği durumlar saklıdır).</li><li>Uygulamayı hukuka aykırı bir amaçla kullanmak.</li></ul>
+        <p>Bu koşulları ihlal eden kullanım, önceden bildirim yapılmadan engellenebilir.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-5">
+      <span class="mile">05</span>
+      <div class="entry-body">
+        <h2>Fikrî mülkiyet</h2>
+        <p>Apexvia adı, logosu, arayüzü ve yazılımı geliştiriciye aittir. Size uygulamayı kişisel ve ticari olmayan amaçla, bu koşullara uygun biçimde kullanmanız için devredilemez, münhasır olmayan bir kullanım izni verilir. Üçüncü taraf verileri ve açık kaynak bileşenler kendi lisanslarına tabidir; listeleri uygulamanın Hakkında ekranındadır.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-6">
+      <span class="mile">06</span>
+      <div class="entry-body">
+        <h2>Hizmetin değişmesi ve durması</h2>
+        <p>Apexvia ücretsiz sunulur. Özellikleri değiştirebilir, sınırlayabilir veya hizmeti tamamen durdurabiliriz. Üçüncü taraf hizmetlerinde (ör. Google) yaşanan kesintiler veya bu hizmetlerin koşullarındaki değişiklikler nedeniyle bazı özellikler geçici ya da kalıcı olarak çalışmayabilir. Maliyet sınırlarına ulaşıldığında bazı özellikler o ay için geçici olarak kullanılamayabilir.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-7">
+      <span class="mile">07</span>
+      <div class="entry-body">
+        <h2>Sorumluluğun sınırlandırılması</h2>
+        <p>Uygulama &quot;olduğu gibi&quot; ve &quot;mevcut olduğu ölçüde&quot; sunulur. Yürürlükteki mevzuatın izin verdiği ölçüde:</p>
+        <ul><li>Önerilen rotaların, yakıt molalarının, yer, hava durumu ve yol bilgilerinin doğru, güncel, güvenli veya kesintisiz olacağı garanti edilmez.</li><li>Uygulamanın kullanımından veya kullanılamamasından doğan dolaylı zararlardan (ör. zaman kaybı, yakıtın bitmesi, yolda kalma, programın aksaması) sorumluluk kabul edilmez.</li></ul>
+        <p>Kast ve ağır ihmalden doğan sorumluluk ile tüketici mevzuatından doğan ve sözleşmeyle kaldırılamayan haklarınız saklıdır.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-8">
+      <span class="mile">08</span>
+      <div class="entry-body">
+        <h2>Gizlilik</h2>
+        <p>Kişisel verilerinizin nasıl işlendiği <a href="https://burbahgit.github.io/apexvia-privacy/" target="_blank" rel="noopener">Gizlilik Politikası</a> ve <a href="https://burbahgit.github.io/apexvia-privacy/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'nde açıklanır.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-9">
+      <span class="mile">09</span>
+      <div class="entry-body">
+        <h2>Değişiklikler</h2>
+        <p>Bu koşulları güncelleyebiliriz. Güncel sürüm yeni yürürlük tarihiyle yayınlanır; önemli değişiklikler sürüm notlarında belirtilir. Değişiklikten sonra uygulamayı kullanmaya devam etmeniz, güncel koşulları kabul ettiğiniz anlamına gelir.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-10">
+      <span class="mile">10</span>
+      <div class="entry-body">
+        <h2>Uygulanacak hukuk</h2>
+        <p>Bu koşullara Türkiye Cumhuriyeti hukuku uygulanır. Tüketici olarak kanundan doğan başvuru haklarınız (tüketici hakem heyetleri ve tüketici mahkemeleri dahil) saklıdır.</p>
+        <p>Bu koşulların Türkçe ve İngilizce metinleri arasında fark olursa Türkçe metin esas alınır.</p>
+      </div>
+    </section>
+    <section class="entry" id="tr-11">
+      <span class="mile">11</span>
+      <div class="entry-body">
+        <h2>İletişim</h2>
+        <p>Sorularınız için: burak.bahali@gmail.com</p>
+      </div>
+    </section></div>
+<div data-lang="en" lang="en"><header class="hero">
+      <h1 class="title">Apexvia Terms of Use</h1>
+      <p class="meta"><strong>Effective date:</strong> 25 September 2026<br><strong>App:</strong> Apexvia (Android, package name <code>com.burbahgit.motorota</code>)<br><strong>Developer:</strong> Burak Bahalı · burak.bahali@gmail.com</p>
+      <p>By downloading or using Apexvia, you agree to these terms. If you do not agree, do not use the app and uninstall it from your device.</p>
+    </header>
+    <section class="entry" id="en-1">
+      <span class="mile">01</span>
+      <div class="entry-body">
+        <h2>What the service is</h2>
+        <p>Apexvia is a free planning app that gives motorcyclists route <strong>suggestions</strong> based on their riding style. Routes, elevation profiles, road character, weather, fuel stops and place information are calculated automatically from third-party data. This information is **only meant to help you plan**; it does not mean that a road is safe, open, suitable or legal.</p>
+        <p>Apexvia is not a navigation device; it does not provide voice guidance or live traffic information.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-2">
+      <span class="mile">02</span>
+      <div class="entry-body">
+        <h2>Riding safety and your responsibility</h2>
+        <ul><li><strong>Do not use the app while riding.</strong> Plan your route before you set off. Only use your phone after stopping in a safe place.</li><li>As the rider, <strong>you are responsible</strong> for following traffic rules, road signs, instructions from the authorities, and road, weather and traffic conditions. If the road differs from what the app suggests, follow the road.</li><li>A suggested road may be closed, poorly maintained, under construction, unpaved, private property, off-limits, or unsuitable for your motorcycle or riding skills. Judge whether a route is suitable yourself before riding it.</li><li><strong>A fuel stop is an estimate.</strong> The range calculation is based on the tank capacity and average consumption you enter; real consumption varies with load, speed, wind, gradient and riding style. The suggested station may be closed, may no longer exist, or may not sell the fuel you need. Plan your own fuel on long or remote routes.</li><li>Weather information is a forecast and may change.</li><li>Mountain roads, passes and high-altitude routes are exposed to sudden changes in weather, snow and ice.</li></ul>
+      </div>
+    </section>
+    <section class="entry" id="en-3">
+      <span class="mile">03</span>
+      <div class="entry-body">
+        <h2>Third-party data and services</h2>
+        <p>Apexvia uses data from the services below. The accuracy, timeliness and completeness of this data are not guaranteed.</p>
+        <ul><li><strong>Google Maps Platform</strong> (map, routes, place search, elevation, weather). By using Apexvia, you also agree to be bound by Google's terms:<ul><li><a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noopener">Google Maps/Google Earth Additional Terms of Service</a></li><li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li></ul></li><li><strong>OpenStreetMap</strong> (fuel station, accommodation and café data; mountain passes and road character). The data is © OpenStreetMap contributors and is licensed under the <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">Open Database License (ODbL)</a>: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">openstreetmap.org/copyright</a>. The dataset included in the app and the script that produces it are published at <a href="https://github.com/burbahgit/apexvia-osm-data" target="_blank" rel="noopener">github.com/burbahgit/apexvia-osm-data</a>.</li><li><strong>The authorised service list</strong> is taken from business listings on Google. Check with the manufacturer's official channels that a service centre really is authorised.</li></ul>
+        <p>When you send a route to Google Maps, the road Google Maps suggests may differ from the one you see in Apexvia.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-4">
+      <span class="mile">04</span>
+      <div class="entry-body">
+        <h2>Unacceptable use</h2>
+        <p>You agree not to:</p>
+        <ul><li>call the app's intermediary servers from outside the app, send requests with automated tools, or try to get around rate or cost limits;</li><li>extract, copy or reuse Google or OpenStreetMap content from the app in bulk or in another service (the ODbL terms for OSM data still apply);</li><li>reverse-engineer, modify or distribute the app (except where the law expressly allows it);</li><li>use the app for any unlawful purpose.</li></ul>
+        <p>Use that breaks these terms may be blocked without notice.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-5">
+      <span class="mile">05</span>
+      <div class="entry-body">
+        <h2>Intellectual property</h2>
+        <p>The Apexvia name, logo, interface and software belong to the developer. You are given a non-transferable, non-exclusive licence to use the app for personal, non-commercial purposes in line with these terms. Third-party data and open-source components are subject to their own licences, which are listed on the app's About screen.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-6">
+      <span class="mile">06</span>
+      <div class="entry-body">
+        <h2>Changes to and discontinuation of the service</h2>
+        <p>Apexvia is provided free of charge. We may change or limit its features, or discontinue the service entirely. Outages at third-party services (such as Google), or changes to their terms, may cause some features to stop working temporarily or permanently. When cost limits are reached, some features may be temporarily unavailable for the rest of that month.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-7">
+      <span class="mile">07</span>
+      <div class="entry-body">
+        <h2>Limitation of liability</h2>
+        <p>The app is provided &quot;as is&quot; and &quot;as available&quot;. To the extent permitted by applicable law:</p>
+        <ul><li>we do not guarantee that suggested routes, fuel stops, or place, weather and road information will be accurate, up to date, safe or uninterrupted;</li><li>we accept no liability for indirect losses arising from using or being unable to use the app (for example lost time, running out of fuel, being stranded or disrupted plans).</li></ul>
+        <p>Liability for intent and gross negligence, and your consumer rights that cannot be excluded by contract, are not affected.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-8">
+      <span class="mile">08</span>
+      <div class="entry-body">
+        <h2>Privacy</h2>
+        <p>How your personal data is processed is explained in the <a href="https://burbahgit.github.io/apexvia-privacy/" target="_blank" rel="noopener">Privacy Policy</a> and the <a href="https://burbahgit.github.io/apexvia-privacy/kvkk.html?lang=en" target="_blank" rel="noopener">KVKK Privacy Notice</a>.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-9">
+      <span class="mile">09</span>
+      <div class="entry-body">
+        <h2>Changes</h2>
+        <p>We may update these terms. The current version will be published with a new effective date, and important changes will be mentioned in the release notes. If you continue to use the app after a change, you accept the updated terms.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-10">
+      <span class="mile">10</span>
+      <div class="entry-body">
+        <h2>Governing law</h2>
+        <p>These terms are governed by the laws of the Republic of Türkiye. Your statutory rights as a consumer, including the right to apply to consumer arbitration committees and consumer courts, are not affected.</p>
+        <p>This English text is a translation. If there is any difference between the Turkish and English versions, the Turkish version prevails.</p>
+      </div>
+    </section>
+    <section class="entry" id="en-11">
+      <span class="mile">11</span>
+      <div class="entry-body">
+        <h2>Contact</h2>
+        <p>For any questions: burak.bahali@gmail.com</p>
+      </div>
+    </section></div>
+  </main>
+</div>
+<footer>
+  <span data-lang="tr" lang="tr">Apexvia · Metnin bağlayıcı sürümü Türkçedir. · <a href="mailto:burak.bahali@gmail.com">burak.bahali@gmail.com</a></span>
+<span data-lang="en" lang="en">Apexvia · The Turkish text is the binding version. · <a href="mailto:burak.bahali@gmail.com">burak.bahali@gmail.com</a></span>
+</footer>
+<script>
+  (function(){
+    var buttons = { tr: document.getElementById('btn-tr'), en: document.getElementById('btn-en') };
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]').forEach(function(el){
+        el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+      });
+      Object.keys(buttons).forEach(function(k){ buttons[k].setAttribute('aria-pressed', String(k === lang)); });
+      document.documentElement.setAttribute('lang', lang);
+      try { localStorage.setItem('apexvia-legal-lang', lang); } catch(e){}
+    }
+    buttons.tr.addEventListener('click', function(){ setLang('tr'); });
+    buttons.en.addEventListener('click', function(){ setLang('en'); });
+    // Öncelik: ?lang= (uygulama dilini taşıyan bağlantı) → son seçim → tarayıcı dili.
+    var lang = null;
+    try { lang = new URLSearchParams(location.search).get('lang'); } catch(e){}
+    if (lang !== 'tr' && lang !== 'en') {
+      try { lang = localStorage.getItem('apexvia-legal-lang'); } catch(e){}
+    }
+    if (lang !== 'tr' && lang !== 'en') {
+      lang = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+    }
+    setLang(lang);
+    // Başka bir dilin bölüm bağlantısıyla gelindiyse (#en-3) o dile geç.
+    var hash = location.hash.match(/^#(tr|en)-/);
+    if (hash && hash[1] !== lang) { setLang(hash[1]); location.hash = location.hash; }
+  })();
+</script>
+</body>
+</html>
